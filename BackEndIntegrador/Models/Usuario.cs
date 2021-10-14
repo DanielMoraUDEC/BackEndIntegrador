@@ -10,7 +10,7 @@ namespace BackEndIntegrador.Models
     public class Usuario
     {
         [Key]
-        public int id { get; set; }
+        public int id_usuario { get; set; }
 
 
         public string nombre { get; set; }
