@@ -13,6 +13,11 @@ namespace BackEndIntegrador.Mapper
         public Mappers()
         {
             CreateMap<Usuario, UsuarioDto>().ReverseMap();
+            CreateMap<Publicacion, PublicacionDto>().ReverseMap();
+            CreateMap<Materia, MateriaDto>().ReverseMap();
+            CreateMap<Tema, TemaDto>().ReverseMap();
+            CreateMap<UsuarioMateria, UsuarioMateriaDto>().ReverseMap();
+            CreateMap<Rol, RolDto>().ReverseMap();
         }
 
     }
