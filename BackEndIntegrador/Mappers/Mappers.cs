@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BackEndIntegrador.Mapper
 {
-    public class Mapper : Profile
+    public class Mappers : Profile
     {
-        public Mapper()
+        public Mappers()
         {
             CreateMap<Usuario, UsuarioDto>().ReverseMap();
         }

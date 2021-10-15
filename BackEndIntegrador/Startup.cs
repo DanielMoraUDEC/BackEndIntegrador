@@ -1,4 +1,5 @@
 using BackEndIntegrador.Data;
+using BackEndIntegrador.Mapper;
 using BackEndIntegrador.Repository;
 using BackEndIntegrador.Repository.IRepository;
 using Microsoft.AspNetCore.Builder;
@@ -40,6 +41,8 @@ namespace BackEndIntegrador
             services.AddScoped<IUsuarioMateriaRepository, UsuarioMateriaRepository>();
             services.AddScoped<IRolRepository, RolRepository>();
             services.AddScoped<ITemaRepository, TemaRepository>();
+
+            services.AddAutoMapper(typeof(Mappers));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
