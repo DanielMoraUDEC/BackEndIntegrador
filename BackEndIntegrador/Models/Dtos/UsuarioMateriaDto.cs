@@ -9,7 +9,6 @@ namespace BackEndIntegrador.Models.Dtos
 {
     public class UsuarioMateriaDto
     {
-        [Key]
         public int id_usuario_materia { get; set; }
 
         public double calificacon { get; set; }

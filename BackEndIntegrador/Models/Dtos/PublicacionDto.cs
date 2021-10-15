@@ -9,7 +9,6 @@ namespace BackEndIntegrador.Models.Dtos
 {
     public class PublicacionDto
     {
-        [Key]
         public int id_publicacion { get; set; }
 
         public DateTime fecha_publicacion { get; set; }

@@ -10,7 +10,6 @@ namespace BackEndIntegrador.Models.Dtos
 {
     public class TemaDto
     {
-        [Key]
         public int id_tema { get; set; }
 
         public string contenido { get; set; }
