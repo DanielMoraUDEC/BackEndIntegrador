@@ -14,6 +14,5 @@ namespace BackEndIntegrador.Models
         public string nombre { get; set; }
 
 
-
     }
 }
