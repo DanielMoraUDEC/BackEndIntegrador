@@ -1,3 +1,7 @@
-.vs
-/BackEndIntegrador/obj/Release/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
-/BackEndIntegrador/obj/Release/net5.0
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/BackEndIntegrador/bin/Debug/net5.0
+/.vs/BackEndIntegrador/config
+/.vs
