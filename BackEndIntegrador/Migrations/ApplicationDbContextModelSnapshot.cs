@@ -128,8 +128,8 @@ namespace BackEndIntegrador.Migrations
                     b.Property<int>("can_publicaciones")
                         .HasColumnType("int");
 
-                    b.Property<int>("celular")
-                        .HasColumnType("int");
+                    b.Property<string>("celular")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("contraseña")
                         .HasColumnType("nvarchar(max)");
