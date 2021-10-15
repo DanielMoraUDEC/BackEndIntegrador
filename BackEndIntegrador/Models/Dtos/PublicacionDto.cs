@@ -13,7 +13,7 @@ namespace BackEndIntegrador.Models.Dtos
 
         public DateTime fecha_publicacion { get; set; }
 
-        public DateTime fecha_actualización { get; set; }
+        public DateTime fecha_actualizacion { get; set; }
 
         [Required(ErrorMessage = "Es un campo obligatorio")]
         public string titulo { get; set; }
