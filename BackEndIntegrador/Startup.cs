@@ -1,4 +1,6 @@
 using BackEndIntegrador.Data;
+using BackEndIntegrador.Repository;
+using BackEndIntegrador.Repository.IRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +33,8 @@ namespace BackEndIntegrador
 
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
