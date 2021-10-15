@@ -25,7 +25,7 @@ namespace BackEndIntegrador.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetUsuario()
+        public IActionResult GetUsuarios()
         {
             var listaUsuarios = _usuRepo.GetUsuarios();
 

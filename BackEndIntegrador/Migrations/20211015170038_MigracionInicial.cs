@@ -13,7 +13,7 @@ namespace BackEndIntegrador.Migrations
                 {
                     id_materia = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nombre = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    nombre = table.Column<string>(type: "nvarchar(50)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,17 +26,17 @@ namespace BackEndIntegrador.Migrations
                 {
                     id_usuario = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    apellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    celular = table.Column<int>(type: "int", nullable: false),
-                    correo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    es_tutor = table.Column<bool>(type: "bit", nullable: false),
-                    rol = table.Column<int>(type: "int", nullable: false),
-                    contraseña = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    salt = table.Column<int>(type: "int", nullable: false),
-                    is_mail_confirmed = table.Column<bool>(type: "bit", nullable: false),
-                    activation_code = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    can_publicaciones = table.Column<int>(type: "int", nullable: false)
+                    nombre = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    apellido = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    celular = table.Column<string>(type: "nvarchar(10)", nullable: true),
+                    correo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    es_tutor = table.Column<bool>(type: "bit", nullable: true),
+                    rol = table.Column<int>(type: "int", nullable: true),
+                    contraseña = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    salt = table.Column<int>(type: "nvarchar(max)", nullable: true),
+                    is_mail_confirmed = table.Column<bool>(type: "bit", nullable: true),
+                    activation_code = table.Column<string>(type: "uniqueidentifier", nullable: true),
+                    can_publicaciones = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,9 +49,9 @@ namespace BackEndIntegrador.Migrations
                 {
                     id_publicacion = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    fecha_publicacion = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    fecha_actualización = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    titulo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    fecha_publicacion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    fecha_actualizacion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    titulo = table.Column<string>(type: "nvarchar(200)", nullable: false),
                     id_usuario = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -71,7 +71,7 @@ namespace BackEndIntegrador.Migrations
                 {
                     id_rol = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    nombre = table.Column<string>(type: "nvarchar(15)", nullable: false),
                     id_usuario = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -91,7 +91,7 @@ namespace BackEndIntegrador.Migrations
                 {
                     id_usuario_materia = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    calificacon = table.Column<double>(type: "float", nullable: false),
+                    calificacion = table.Column<double>(type: "float", nullable: false),
                     content_file = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     file_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     file_type = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -126,14 +126,13 @@ namespace BackEndIntegrador.Migrations
                     file_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     file_type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     id_publicacion = table.Column<int>(type: "int", nullable: false),
-                    id_publicaión = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tema", x => x.id_tema);
                     table.ForeignKey(
-                        name: "FK_Tema_Publicacion_id_publicaión",
-                        column: x => x.id_publicaión,
+                        name: "FK_Tema_Publicacion_id_publicacion",
+                        column: x => x.id_publicacion,
                         principalTable: "Publicacion",
                         principalColumn: "id_publicacion",
                         onDelete: ReferentialAction.Restrict);
@@ -150,9 +149,9 @@ namespace BackEndIntegrador.Migrations
                 column: "id_usuario");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tema_id_publicaión",
+                name: "IX_Tema_id_publicacion",
                 table: "Tema",
-                column: "id_publicaión");
+                column: "id_publicacion");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UsuarioMateria_id_materia",

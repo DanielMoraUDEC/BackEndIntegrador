@@ -23,7 +23,7 @@ namespace BackEndIntegrador.Models
 
 
         public int id_publicacion { get; set; }
-        [ForeignKey("id_publicaión")]
+        [ForeignKey("id_publicacion")]
         public Publicacion publicacion { get; set; }
     }
 }

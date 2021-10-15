@@ -14,7 +14,7 @@ namespace BackEndIntegrador.Models
 
         public DateTime fecha_publicacion { get; set; }
 
-        public DateTime fecha_actualización { get; set; }
+        public DateTime fecha_actualizacion { get; set; }
 
         public string titulo { get; set; }
 

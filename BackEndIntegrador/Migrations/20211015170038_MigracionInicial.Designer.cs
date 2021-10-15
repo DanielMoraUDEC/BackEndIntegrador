@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEndIntegrador.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211014195740_MigracionAzure")]
-    partial class MigracionAzure
+    [Migration("20211015170038_MigracionInicial")]
+    partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -130,8 +130,8 @@ namespace BackEndIntegrador.Migrations
                     b.Property<int>("can_publicaciones")
                         .HasColumnType("int");
 
-                    b.Property<int>("celular")
-                        .HasColumnType("int");
+                    b.Property<string>("celular")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("contraseña")
                         .HasColumnType("nvarchar(max)");

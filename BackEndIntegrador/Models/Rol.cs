@@ -15,7 +15,6 @@ namespace BackEndIntegrador.Models
         public string nombre { get; set; }
 
 
-
         public int id_usuario { get; set; }
         [ForeignKey("id_usuario")]
         public Usuario usuario { get; set; }

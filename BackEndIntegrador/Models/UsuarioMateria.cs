@@ -12,7 +12,7 @@ namespace BackEndIntegrador.Models
         [Key]
         public int id_usuario_materia { get; set; }
 
-        public double calificacon { get; set; }
+        public double calificacion { get; set; }
 
         public byte[] content_file { get; set; }
 
@@ -21,9 +21,11 @@ namespace BackEndIntegrador.Models
         public string file_type { get; set; }
 
 
+
         public int id_materia { get; set; }
         [ForeignKey("id_materia")]
         public Materia materia { get; set; }
+
 
         public int id_usuario { get; set; }
         [ForeignKey("id_usuario")]
