@@ -59,3 +59,5 @@ C:\Users\danie\Desktop\P. integrador 7\BackEndIntegrador\BackEndIntegrador\obj\D
 C:\Users\danie\Desktop\P. integrador 7\BackEndIntegrador\BackEndIntegrador\obj\Debug\net5.0\ref\BackEndIntegrador.dll
 C:\Users\danie\Desktop\P. integrador 7\BackEndIntegrador\BackEndIntegrador\obj\Debug\net5.0\BackEndIntegrador.pdb
 C:\Users\danie\Desktop\P. integrador 7\BackEndIntegrador\BackEndIntegrador\obj\Debug\net5.0\BackEndIntegrador.genruntimeconfig.cache
+C:\Users\danie\Desktop\P. integrador 7\BackEndIntegrador\BackEndIntegrador\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\danie\Desktop\P. integrador 7\BackEndIntegrador\BackEndIntegrador\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
