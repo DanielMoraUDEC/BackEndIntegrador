@@ -35,6 +35,11 @@ namespace BackEndIntegrador
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IMateriaRepository, MateriaRepository>();
+            services.AddScoped<IPublicacionRepository, PublicacionRepository>();
+            services.AddScoped<IUsuarioMateriaRepository, UsuarioMateriaRepository>();
+            services.AddScoped<IRolRepository, RolRepository>();
+            services.AddScoped<ITemaRepository, TemaRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
