@@ -23,7 +23,7 @@ namespace BackEndIntegrador.Repository
             return Guardar();
         }
 
-        public bool BorrarUusuario(Usuario usuario)
+        public bool BorrarUsuario(Usuario usuario)
         {
             _bd.Usuario.Remove(usuario);
             return Guardar();

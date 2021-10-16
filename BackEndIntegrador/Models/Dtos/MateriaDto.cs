@@ -8,6 +8,7 @@ namespace BackEndIntegrador.Models.Dtos
 {
     public class MateriaDto
     {
+
         public int id_materia { get; set; }
 
         public string nombre { get; set; }

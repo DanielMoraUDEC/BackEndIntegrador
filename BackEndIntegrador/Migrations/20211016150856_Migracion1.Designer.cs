@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEndIntegrador.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211015170038_MigracionInicial")]
-    partial class MigracionInicial
+    [Migration("20211016150856_Migracion1")]
+    partial class Migracion1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,7 +43,7 @@ namespace BackEndIntegrador.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("fecha_actualización")
+                    b.Property<DateTime>("fecha_actualizacion")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("fecha_publicacion")
@@ -104,12 +104,9 @@ namespace BackEndIntegrador.Migrations
                     b.Property<int>("id_publicacion")
                         .HasColumnType("int");
 
-                    b.Property<int?>("id_publicaión")
-                        .HasColumnType("int");
-
                     b.HasKey("id_tema");
 
-                    b.HasIndex("id_publicaión");
+                    b.HasIndex("id_publicacion");
 
                     b.ToTable("Tema");
                 });
@@ -151,8 +148,8 @@ namespace BackEndIntegrador.Migrations
                     b.Property<int>("rol")
                         .HasColumnType("int");
 
-                    b.Property<int>("salt")
-                        .HasColumnType("int");
+                    b.Property<string>("salt")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id_usuario");
 
@@ -166,7 +163,7 @@ namespace BackEndIntegrador.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("calificacon")
+                    b.Property<double>("calificacion")
                         .HasColumnType("float");
 
                     b.Property<byte[]>("content_file")
@@ -219,7 +216,9 @@ namespace BackEndIntegrador.Migrations
                 {
                     b.HasOne("BackEndIntegrador.Models.Publicacion", "publicacion")
                         .WithMany()
-                        .HasForeignKey("id_publicaión");
+                        .HasForeignKey("id_publicacion")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("publicacion");
                 });

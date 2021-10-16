@@ -20,7 +20,7 @@ namespace BackEndIntegrador.Repository.IRepository
 
         bool ActualizarUsuario(Usuario usuario);
 
-        bool BorrarUusuario(Usuario usuario);
+        bool BorrarUsuario(Usuario usuario);
 
         bool Guardar();
 

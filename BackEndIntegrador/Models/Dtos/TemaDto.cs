@@ -22,7 +22,7 @@ namespace BackEndIntegrador.Models.Dtos
 
 
         public int id_publicacion { get; set; }
-        [ForeignKey("id_publicaión")]
-        public PublicacionDto publicacion { get; set; }
+        [ForeignKey("id_publicacion")]
+        public Publicacion publicacion { get; set; }
     }
 }

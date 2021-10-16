@@ -26,8 +26,8 @@ namespace BackEndIntegrador.Models
 
         public string contraseña { get; set; }
 
-        public int salt { get; set; }
-
+        public string salt { get; set; }
+  
         public bool is_mail_confirmed { get; set; }
 
         public string activation_code { get; set; }
