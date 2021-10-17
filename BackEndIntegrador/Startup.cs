@@ -2,6 +2,7 @@ using BackEndIntegrador.Data;
 using BackEndIntegrador.Mapper;
 using BackEndIntegrador.Repository;
 using BackEndIntegrador.Repository.IRepository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,10 +12,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BackEndIntegrador
@@ -41,6 +44,19 @@ namespace BackEndIntegrador
             services.AddScoped<IUsuarioMateriaRepository, UsuarioMateriaRepository>();
             services.AddScoped<IRolRepository, RolRepository>();
             services.AddScoped<ITemaRepository, TemaRepository>();
+
+            // dependencia de token
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(
+                        Configuration.GetSection("AppSettings:Token").Value)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
 
             services.AddAutoMapper(typeof(Mappers));
 

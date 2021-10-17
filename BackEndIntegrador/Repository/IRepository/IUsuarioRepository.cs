@@ -18,6 +18,10 @@ namespace BackEndIntegrador.Repository.IRepository
 
         bool CrearUsuario(Usuario usuario);
 
+        Usuario Registro(Usuario usuario, string password);
+
+        Usuario Login(string correo, string password);
+
         bool ActualizarUsuario(Usuario usuario);
 
         bool BorrarUsuario(Usuario usuario);

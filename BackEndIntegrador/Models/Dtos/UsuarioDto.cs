@@ -9,9 +9,6 @@ namespace BackEndIntegrador.Models.Dtos
 {
     public class UsuarioDto
     {
-
-        public int id_usuario { get; set; }
-
         public string nombre { get; set; }
 
         public string apellido { get; set; }
@@ -24,10 +21,8 @@ namespace BackEndIntegrador.Models.Dtos
 
         public int rol { get; set; }
 
-        public string contraseña { get; set; }
+        public byte[] pass_hash { get; set; }
 
-        public string salt { get; set; }
-  
         public bool is_mail_confirmed { get; set; }
 
         public string activation_code { get; set; }

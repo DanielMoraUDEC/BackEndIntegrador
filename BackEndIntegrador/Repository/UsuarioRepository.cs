@@ -4,6 +4,7 @@ using BackEndIntegrador.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BackEndIntegrador.Repository
@@ -59,7 +60,66 @@ namespace BackEndIntegrador.Repository
 
         public bool Guardar()
         {
-            return _bd.SaveChanges() >=0 ? true:false;
+            return _bd.SaveChanges() >= 0 ? true : false;
         }
+
+        public Usuario Login(string correo, string password)
+        {
+            var user = _bd.Usuario.FirstOrDefault(x => x.correo == correo);
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            if(!VerificaPasswordHash(password, user.pass_hash, user.salt))
+            {
+                return null;
+            }
+
+            return user;
+        }
+
+        public Usuario Registro(Usuario usuario, string password)
+        {
+            byte[] passHash; 
+            byte[] passSalt;
+
+            CreatePassHash(password, out passHash, out passSalt);
+
+            usuario.pass_hash = passHash;
+            usuario.salt = passSalt;
+
+            _bd.Usuario.Add(usuario);
+            
+            Guardar();
+
+            return usuario;
+        }
+
+        private bool VerificaPasswordHash(string password, byte[] pass_hash, byte[] salt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(salt))
+            {
+                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                for(int i = 0; i < hash.Length; i++)
+                {
+                    if (hash[i] != pass_hash[i]) return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void CreatePassHash(string password, out byte[] pass_hash, out byte[] salt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                salt = hmac.Key;
+                pass_hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }   
+        }
+
     }
 }

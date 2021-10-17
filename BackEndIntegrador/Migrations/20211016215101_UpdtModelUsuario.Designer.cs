@@ -4,14 +4,16 @@ using BackEndIntegrador.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndIntegrador.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211016215101_UpdtModelUsuario")]
+    partial class UpdtModelUsuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,9 +118,6 @@ namespace BackEndIntegrador.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid?>("activation_code")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("apellido")
                         .HasColumnType("nvarchar(max)");
 
@@ -148,9 +147,6 @@ namespace BackEndIntegrador.Migrations
 
                     b.Property<int>("rol")
                         .HasColumnType("int");
-
-                    b.Property<byte[]>("salt")
-                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("id_usuario");
 
